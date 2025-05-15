@@ -13,39 +13,31 @@ const About = () => {
   return (
     <div id="it" className={`px-5 py-4 ${ovo.className}`}>
       <div className="text-center mb-10">
-        <h4 className="text-[40px]">Introduction</h4>
-        <h2 className="text-[80px]">About Me</h2>
+        <h4 className={`text-[40px] ${ovo.className}`}>Introduction</h4>
+        <h2 className={`text-[80px] ${ovo.className}`}>About Me</h2>
       </div>
 
-      <div className="flex flex-col lg:flex-row w-full">
-        {/* Image Block */}
-        <div className="flex justify-center lg:justify-start w-full lg:w-auto">
+      <div className="flex flex-col items-center md:flex-row gap-4 w-full">
+        <div className="w-64 sm:w-80 rounded-xl">
           <Image 
             src={assets.about_pic} 
-            alt="about" 
+            alt="" 
+            style={{ borderRadius: '3rem'}}
             width={500} 
-            height={800}
-            style={{
-              marginLeft: '9rem',
-              marginRight: '5rem',
-              marginTop: '11rem',
-              borderRadius: '3rem'
-            }}
+            height={800} 
           />
         </div>
 
-        {/* Text and Cards */}
-        <div className="flex flex-col w-full">
-          <p className="text-[40px] ml-[5rem] mr-[5rem] mb-[5rem]"></p>
+        <div className="flex flex-col items-center md:items-start md:ml-8">
+          <p className="text-[40px] text-justify">{/* Empty paragraph for spacing */}</p>
 
-          <p className="text-[40px] text-justify ml-[8rem] mr-[5rem] lg:mr-[27rem] mb-[5rem]">
+          <p className={`text-[40px] text-justify ${ovo.className} mb-6`}>
             I'm a front-end web developer from South Africa, skilled in HTML, CSS, JavaScript, and React. 
             I create clean, responsive websites, focusing on both function and design. I enjoy building interactive 
             digital experiences that people love using.
           </p>
 
-          {/* Info Cards */}
-          <ul className="flex gap-6 overflow-x-auto ml-[5rem] mr-[5rem] list-none p-0 m-0">
+          <ul className="flex gap-6 overflow-x-auto list-none p-0 m-0 mb-8">
             {infoList.map(({ icon, title, description }, index) => {
               const isHovered = hoveredIndex === index;
               return (
@@ -53,19 +45,9 @@ const About = () => {
                   key={index}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
+                  className="min-w-[280px] p-6 border rounded-xl cursor-pointer transition-all transform hover:scale-105 hover:shadow-lg"
                   style={{
-                    minWidth: '300px',
-                    padding: '3rem',
-                    border: '1px solid #ccc',
-                    borderRadius: '2rem',
-                    marginLeft: '1rem',
-                    marginRight: '1rem',
-                    flexShrink: 0,
-                    cursor: 'pointer',
                     backgroundColor: isHovered ? '#ebf8ff' : 'white',
-                    boxShadow: isHovered ? '0 4px 12px rgba(0, 0, 0, 0.1)' : 'none',
-                    transform: isHovered ? 'translateY(-5px)' : 'none',
-                    transition: 'all 0.3s ease',
                   }}
                 >
                   <Image src={icon} alt={title} className="w-1 mt-3" />
@@ -76,12 +58,11 @@ const About = () => {
             })}
           </ul>
 
-          {/* Tools Section */}
-          <h4 className="text-[30px] text-justify ml-[8rem] mt-[4rem]">
+          <p className={`text-[30px] text-justify ${ovo.className} mb-6`}>
             Tools I Use
-          </h4>
+          </p>
 
-          <ul className="flex items-center gap-3 sm:gap-5 ml-[5rem] flex-wrap">
+          <ul className="flex gap-4 items-center justify-center sm:gap-5">
             {toolsData.map((tool, index) => {
               const isHovered = hoveredToolIndex === index;
               return (
@@ -89,21 +70,10 @@ const About = () => {
                   key={index}
                   onMouseEnter={() => setHoveredToolIndex(index)}
                   onMouseLeave={() => setHoveredToolIndex(null)}
+                  className="flex items-center justify-center w-12 sm:w-14 aspect-square border-5 rounded-full cursor-pointer transition-all transform hover:scale-105 hover:shadow-lg"
                   style={{
-                    minWidth: '1px',
-                    padding: '1rem',
-                    border: '5px solid #ccc',
-                    borderRadius: '5rem',
-                    marginLeft: '1rem',
-                    marginRight: '2rem',
-                    marginTop: '2rem',
-                    flexShrink: 0,
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    transform: isHovered ? 'translateY(-5px)' : 'none',
-                    boxShadow: isHovered ? '0 4px 10px rgba(0,0,0,0.1)' : 'none',
+                    backgroundColor: isHovered ? '#ebf8ff' : 'white',
                   }}
-                  className="flex items-center justify-center w-12 sm:w-14 aspect-square"
                 >
                   <Image src={tool} alt="tool" className="w-5" />
                 </li>
@@ -112,7 +82,6 @@ const About = () => {
           </ul>
         </div>
       </div>
-
       <Footer />
     </div>
   );

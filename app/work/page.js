@@ -1,22 +1,17 @@
-"use client";
+'use client';
 
 import React from "react";
 import { ovo } from "../layout";
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
 
 const Work = () => {
   return (
     <div id="work" className='bg-[#F5F5F5]'>
-      <div>
-        <h4 className={`text-[50px] font-bold ${ovo.className}`} style={{ marginLeft: '10rem' }}>
-          My Portfolio
-        </h4>
+      <div className="text-center py-10">
+        <h4 className={`text-[50px] font-bold ${ovo.className}`}>My Portfolio</h4>
       </div>
 
-      <div
-        className="text-center mb-10 scroll-smooth"
-        style={{ marginLeft: '30rem', marginRight: '30rem' }}
-      >
+      <div className="text-center mb-10 px-4 sm:px-8 lg:px-40">
         <h2 className={`text-[30px] ${ovo.className}`}>My work</h2>
         <p className={`text-[30px] ${ovo.className}`}>
           I have worked on several projects, including personal and collaborative ones.
@@ -25,9 +20,11 @@ const Work = () => {
           I am currently looking for opportunities to work on exciting projects and expand my skill set.
         </p>
       </div>
+
       <Footer />
     </div>
   );
 };
 
 export default Work;
+

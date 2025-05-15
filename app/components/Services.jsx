@@ -6,47 +6,38 @@ import React from "react";
 import { ovo, roboto } from "../layout";
 
 const Services = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [hoveredToolIndex, setHoveredToolIndex] = useState(null);
-    return (
-        <div id="services" className="text-center mb-10 scroll-smooth">
-        <h4 className={`text-[40px] font-bold ${ovo.className}`}>What I offer</h4>
-        <h2 className={`text-[80px] ${ovo.className}`}>My Services</h2>
-        <p></p>
 
-        <div className='grid grid-cols-4 gap-4 my-10'>
+  return (
+    <div id="services" className="text-center py-10 px-4">
+      <h4 className={`text-2xl sm:text-3xl font-bold ${ovo.className}`}>What I offer</h4>
+      <h2 className={`text-4xl sm:text-6xl ${ovo.className}`}>My Services</h2>
+
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10'>
         {serviceData.map(({ icon, title, description, link }, index) => {
-           const isHovered = hoveredToolIndex === index;
-               return (
-                    <div
-                       key={index}
-                       onMouseEnter={() => setHoveredToolIndex(index)}
-                       onMouseLeave={() => setHoveredToolIndex(null)}
-                style={{
-                    minWidth: '1px', padding: '3rem',               
-                    border: '1px solid #ccc', borderRadius: '1rem',
-                    marginLeft: '1rem', marginRight: '1rem',  marginBottom:'2rem',
-                    flexShrink: 0, cursor: 'pointer',                
-                    backgroundColor: isHovered ? '#ebf8ff' : 'white',
-                    boxShadow: isHovered ? '0 4px 12px rgba(0, 0, 0, 0.1)' : 'none',
-                    transform: isHovered ? 'translateY(-5px)' : 'none',
-                    transition: 'all 0.3s ease',
-                    }}
-                >
-      <Image src={icon} alt='' width={40} height={40} />
-      <h3 className={`text-[30px] ${roboto.className}`}>{title}</h3>
-      <p className={`text-[22px] ${ovo.className}`}>{description}</p>
-      <a href={link} className={`items-center gap-2 text-[30px] mt-5 ${roboto.className}`}>
-        read more
-        <Image src={assets.right_arrow} alt='' width={26} height={26} />
-      </a>
+          const isHovered = hoveredToolIndex === index;
+          return (
+            <div
+              key={index}
+              onMouseEnter={() => setHoveredToolIndex(index)}
+              onMouseLeave={() => setHoveredToolIndex(null)}
+              className="p-6 border rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1"
+              style={{
+                backgroundColor: isHovered ? '#ebf8ff' : 'white'
+              }}
+            >
+              <Image src={icon} alt='' width={40} height={40} />
+              <h3 className={`text-xl font-semibold mt-2 ${roboto.className}`}>{title}</h3>
+              <p className={`text-md mt-1 ${ovo.className}`}>{description}</p>
+              <a href={link} className={`inline-flex items-center gap-1 mt-4 text-blue-500 ${roboto.className}`}>
+                Read more <Image src={assets.right_arrow} alt='' width={20} height={20} />
+              </a>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
-})}
-
-        </div>
-      </div>
-    )
-}
+};
 
 export default Services;
