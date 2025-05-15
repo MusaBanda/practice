@@ -15,8 +15,8 @@ const About = () => {
     <div id="it" className={`px-5 py-4 items-center justify-center ${ovo.className}`}>
       
       <div className="text-center mb-10">
-        <h4 className={`text-[40px] ${ovo.className}`}>Introduction</h4>
-        <h2 className={`text-[80px] ${ovo.className}`}>About Me</h2>
+        <h4 className={`text-[20px] ${ovo.className}`}>Introduction</h4>
+        <h2 className={`text-[40px] ${ovo.className}`}>About Me</h2>
       </div>
 
       <div className="-mx-[0px] -my-[1px] w-full flex">
@@ -25,15 +25,15 @@ const About = () => {
             src={assets.about_pic} 
             alt="" 
             style={{ marginLeft: '9rem', marginRight: '5rem', marginTop: '11rem', borderRadius: '3rem'}}
-            width={500} 
-            height={800} 
+            width={250} 
+            height={400} 
           />
         </div>
 
         <div className="flex flex-col">
-          <p className="text-[40px] " style={{ marginLeft: '5rem', marginRight: '5rem', marginBottom: '5rem'}}></p>
+          <p className="text-[20px] " style={{ marginLeft: '5rem', marginRight: '5rem', marginBottom: '5rem'}}></p>
 
-          <p className={`text-[40px] text-justify ${ovo.className}`} style={{ marginLeft: '8rem', marginRight: '27rem', marginBottom: '5rem' }}>
+          <p className={`text-[20px] text-justify ${ovo.className}`} style={{ marginLeft: '8rem', marginRight: '27rem', marginBottom: '5rem' }}>
             I'm a front-end web developer from South Africa, skilled in HTML, CSS, JavaScript, and React. 
             I create clean, responsive websites, focusing on both function and design. I enjoy building interactive 
             digital experiences that people love using.
@@ -59,14 +59,14 @@ const About = () => {
                   }}
                 >
                   <Image src={icon} alt={title} className="w-1 mt-3" />
-                  <h3 className="text-[25px] text-gray-700">{title}</h3>
-                  <p className="text-[20px] text-gray-600">{description}</p>
+                  <h3 className="text-[12px] text-gray-700">{title}</h3>
+                  <p className="text-[10px] text-gray-600">{description}</p>
                 </li>
               );
             })}
           </ul>
 
-          <p4 className={`text-[30px] text-justify ${ovo.className}`} style={{ marginLeft: '8rem', marginTop: '4rem' }}>
+          <p4 className={`text-[15px] text-justify ${ovo.className}`} style={{ marginLeft: '8rem', marginTop: '4rem' }}>
             Tools I Use
           </p4>
 
