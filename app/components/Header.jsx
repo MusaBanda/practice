@@ -43,7 +43,7 @@ const Header = () => {
       
       <h3 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`} 
       style={{marginBottom:'-1rem'}}>Hi I am Musa Dick Banda <Image src={assets.hand_icon}/></h3>
-      <h1 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`}
+      <h1 className={`sm:text-[18px] md:text-[20px] lg:text-[30px]  ${ovo.className}`}
       style={{marginLeft:'1rem', marginRight:'0rem'}}>Front end web developer based South Africa</h1>
       <p className={`sm:text-[18px] md:text-[20px] lg:text-[30px] text-justify ${ovo.className}`} 
       style={{marginLeft:'5rem', marginRight:'5rem', marginTop:'-1rem', fontSize}}>

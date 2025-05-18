@@ -32,19 +32,23 @@ const Navbar = () => {
 
 // Show only on large screens
 
-  const [showContent, setShowContent] = useState(true);
+  const [showForLargeScreen, setShowForLargeScreen] = useState(true);
+  const [showForSmallScreen, setShowForSmallScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setShowContent(window.innerWidth >= 1024); 
+      const isLarge = window.innerWidth >= 1024;
+      setShowForLargeScreen(isLarge);
+      setShowForSmallScreen(!isLarge);
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); 
+    handleResize(); // Call once on mount
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+// Responsive columns based on screen width
   const [columns, setColumns] = useState(1);
   
   useEffect(() => {
@@ -78,18 +82,21 @@ const Navbar = () => {
   return (
     <div  className='w-full h-[0px]' style={{ marginTop: '0rem', marginBottom: '0rem' }}>
      
+       {showForSmallScreen &&<div className='flex items-center justify-center' style={{marginLeft: '-1rem'}}>
+        <h1 > MusaBanda<span style={{ color: 'red' }}>.</span></h1>
+      </div>}
 
       <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50  
         ${isScroll ? "bg-[#ffe6e6] bg-opacity-50 backgrop-blur-lg shadow-sm" : ""}`}>
         
-        {showContent && (<h1 
+        { showForLargeScreen && (<h1 
           className={` sm:text-[30px] md:text-[60px] lg:text-[120px] font-bold ${roboto.className}`}
           style={{ color: 'black', marginLeft: '2.5rem', marginTop: '1rem' }}
         >
           MusaBanda<span style={{ color: 'red' }}>.</span>
         </h1>)}
 
-        <ul
+        {showForSmallScreen &&<ul
           className='list-none'
           style={{ 
             padding: '1rem',
@@ -102,19 +109,43 @@ const Navbar = () => {
           }}
         >
           <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
-          style={{ color: 'black', fontSize, padding: '2rem' }} href='#top'>Home</a></li>
+          style={{ color: 'black', fontSize, }} href='#top'>Home</a></li>
           <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
-          style={{ color: 'black', fontSize, padding: '2rem'}} href='about'>About Me</a></li>
+          style={{ color: 'black', fontSize,}} href='about'>About Me</a></li>
           <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
-          style={{ color: 'black', fontSize, padding: '2rem' }} href='#services'>Services</a></li>
+          style={{ color: 'black', fontSize, }} href='#services'>Services</a></li>
           <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
-          style={{ color: 'black', fontSize, padding: '2rem' }} href='work'>My Work</a></li>
+          style={{ color: 'black', fontSize, }} href='work'>My Work</a></li>
           <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
-          style={{ color: 'black', fontSize, padding: '2rem' }} href='contact'>Contact</a></li>
-        </ul>
+          style={{ color: 'black', fontSize, }} href='contact'>Contact</a></li>
+        </ul>}
+
+        {showForLargeScreen &&<ul
+          className='list-none'
+          style={{ 
+            padding: '1rem',
+             borderRadius: '2rem' ,border: '1px solid white',
+            backgroundColor: 'white',
+            marginRight: '0rem',
+            marginTop: '1.5rem',
+            display: "grid",
+            gridTemplateColumns: `repeat(${columns}, 5fr)`
+          }}
+        >
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`}
+          style={{ padding: '1rem',color: 'black',}}  href='#top'>Home</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
+          style={{ padding: '1rem',color: 'black',}}  href='about'>About Me</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
+          style={{ padding: '1rem',color: 'black',}}  href='#services'>Services</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
+          style={{ padding: '1rem',color: 'black',}}  href='work'>My Work</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
+          style={{ padding: '1rem',color: 'black',}}  href='contact'>Contact Me</a></li>
+        </ul>}
 
         <div className='flex items-center gap-4'>
-          {showContent && (<Image 
+          { showForLargeScreen && (<Image 
             src={assets.moon_icon} 
             alt='moon_icon' 
             width={40} 
@@ -123,7 +154,7 @@ const Navbar = () => {
             style={{ marginLeft: '2.5rem', marginRight: '0.5rem', marginTop: '0.5rem' }} 
           />)}
 
-          {showContent && (<a 
+          { showForLargeScreen && (<a 
             href='contact' 
             className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline bg-[white] ${ovo.className}`}  
             style={{
@@ -145,31 +176,8 @@ const Navbar = () => {
               height={15} 
               style={{ marginLeft: '1rem' }} 
             />
-          </a>)}
-
-          <a 
-            href='' 
-            className='hidden block md:hidden ml-3' 
-            onClick={openMenu}
-          >
-            <Image src={assets.menu_black} alt='' width={40} height={40} />
-          </a>
+          </a>)}       
         </div>
-
-        {/* Mobile Menu */}
-        <ul 
-          ref={sideMenuRref} 
-          className='flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-60 top-0 w-64 z-50 h-screen bg-rose-50 transition duration-500'
-        >
-          <div className='absolute top-5 right-5' onClick={openMenu}>
-            <Image src={assets.close_black} alt='' className='w-4 cursor-pointer' />
-          </div>
-          <li><a className='font-Ovo' onClick={openMenu} href='#top'>Home</a></li>
-          <li><a className='font-Ovo' onClick={openMenu} href='about'>About Me</a></li>
-          <li><a className='font-Ovo' onClick={openMenu} href='#services'>Services</a></li>
-          <li><a className='font-Ovo' onClick={openMenu} href='work'>My Work</a></li>
-          <li><a className='font-Ovo' onClick={openMenu} href='contact'>Contact me</a></li>
-        </ul>
       </nav>
     </div>
   );
