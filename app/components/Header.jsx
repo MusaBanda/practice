@@ -46,7 +46,7 @@ const Header = () => {
       <h1 className={`sm:text-[18px] md:text-[20px] lg:text-[30px]  ${ovo.className}`}
       style={{marginLeft:'1rem', marginRight:'0rem'}}>Front end web developer based South Africa</h1>
       <p className={`sm:text-[18px] md:text-[20px] lg:text-[30px] text-justify ${ovo.className}`} 
-      style={{marginLeft:'5rem', marginRight:'5rem', marginTop:'-1rem', fontSize}}>
+      style={{marginLeft:'5rem', marginRight:'5rem', marginTop:'-1rem',}}>
        I'm a beginner front-end web developer, just starting out on my journey. I may not have experience
       yet, but I'm learning every day and excited to grow.
       </p>
