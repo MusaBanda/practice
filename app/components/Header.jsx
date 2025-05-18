@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { assets } from "@/assets/assets";
 import { roboto, ovo } from "../layout";
@@ -18,37 +18,18 @@ const Header = () => {
     setTimeout(() => setIsResumeClicked(false), 300); 
   };
 
-  // Responsive font size based on screen width
-
-  const [fontSize, setFontSize] = useState("14px");
-  
-    useEffect(() => {
-      const handleResize = () => {
-        setFontSize(window.innerWidth >= 1024 ? "30px" : "14px");
-      };
-  
-      window.addEventListener("resize", handleResize);
-      handleResize(); 
-  
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
   return (
-    <div className='flex flex-col items-center justify-center h-screen '
-    style={{ marginTop: '0rem', marginBottom: '10rem' }}>
+    <div className='flex flex-col items-center justify-center h-screen text-center gap-4 px-5 lg:px-8 xl:px-[8%] bg-gradient-to-b from-[#f9f9f9] to-[#fff]'>
       <div>
         <Image src={assets.mypic} width={160} height={160} alt='' className='rounded-full '
           style={{ marginLeft: '24rem', marginRight: '27rem', marginBottom: '-2rem', marginTop: '9rem' }} />
       </div>
       
-      <h3 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`} 
-      style={{marginBottom:'-1rem'}}>Hi I am Musa Dick Banda <Image src={assets.hand_icon}/></h3>
-      <h1 className={`sm:text-[18px] md:text-[20px] lg:text-[30px]  ${ovo.className}`}
-      style={{marginLeft:'1rem', marginRight:'0rem'}}>Front end web developer based South Africa</h1>
-      <p className={`sm:text-[18px] md:text-[20px] lg:text-[30px] text-justify ${ovo.className}`} 
-      style={{marginLeft:'5rem', marginRight:'5rem', marginTop:'-1rem',}}>
-       I'm a beginner front-end web developer, just starting out on my journey. I may not have experience
-      yet, but I'm learning every day and excited to grow.
+      <h3 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`} style={{marginBottom:'-1rem'}}>Hi I am Musa Dick Banda <Image src={assets.hand_icon}/></h3>
+      <h1 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`}style={{marginLeft:'0rem', marginRight:'0rem'}}>Front end web developer based South Africa</h1>
+      <p className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`} style={{marginLeft:'1', marginRight:'1rem', marginTop:'-1rem'}}>
+I'm a beginner front-end web developer, just starting out on my journey. I may not have experience yet, but I'm learning every 
+day and excited to grow.
       </p>
 
       <div className='flex flex-col-2 items-center'>
@@ -98,4 +79,3 @@ const Header = () => {
 };
 
 export default Header;
-

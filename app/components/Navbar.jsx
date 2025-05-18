@@ -108,16 +108,16 @@ const Navbar = () => {
             gridTemplateColumns: `repeat(${columns}, 5fr)`
           }}
         >
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
-          style={{ color: 'black', fontSize, }} href='#top'>Home</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
-          style={{ color: 'black', fontSize,}} href='about'>About Me</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
-          style={{ color: 'black', fontSize, }} href='#services'>Services</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
-          style={{ color: 'black', fontSize, }} href='work'>My Work</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
-          style={{ color: 'black', fontSize, }} href='contact'>Contact</a></li>
+          <li><a className={`text-[13px] no-underline ${ovo.className}`} 
+          style={{ color: 'black', padding: '0.5rem' }} href='#top'>Home</a></li>
+          <li><a className={`text-[13px] no-underline ${ovo.className}`} 
+          style={{ color: 'black', padding: '0.5rem'}} href='about'>About Me</a></li>
+          <li><a className={`text-[13px] no-underline ${ovo.className}`} 
+          style={{ color: 'black', padding: '0.5rem' }} href='#services'>Services</a></li>
+          <li><a className={`text-[13px] no-underline ${ovo.className}`} 
+          style={{ color: 'black', padding: '0.5rem' }} href='work'>My Work</a></li>
+          <li><a className={`text-[13px] no-underline ${ovo.className}`} 
+          style={{ color: 'black', padding: '0.5rem' }} href='contact'>Contact</a></li>
         </ul>}
 
         {showForLargeScreen &&<ul
