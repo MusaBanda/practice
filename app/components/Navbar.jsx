@@ -27,11 +27,25 @@ const Navbar = () => {
     });
   }, []);
 
+
+  const [showContent, setShowContent] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowContent(window.innerWidth >= 1024); // Show only on large screens
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Set initial state
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const [columns, setColumns] = useState(1);
   
   useEffect(() => {
     const handleResize = () => {
-      setColumns(window.innerWidth >= 1024 ? 5 : 1);
+      setColumns(window.innerWidth >= 1024 ? 5 : 5);
     };
 
     window.addEventListener("resize", handleResize);
@@ -47,31 +61,30 @@ const Navbar = () => {
       <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50  
         ${isScroll ? "bg-[#ffe6e6] bg-opacity-50 backgrop-blur-lg shadow-sm" : ""}`}>
         
-        <h1 
-          className={`hidden sm:text-[30px] md:text-[60px] lg:text-[120px] font-bold ${roboto.className}`}
+        {showContent && (<h1 
+          className={` sm:text-[30px] md:text-[60px] lg:text-[120px] font-bold ${roboto.className}`}
           style={{ color: 'black', marginLeft: '2.5rem', marginTop: '1rem' }}
         >
           MusaBanda<span style={{ color: 'red' }}>.</span>
-        </h1>
+        </h1>)}
 
         <ul
-          className='absolute top-4 left-1/2 transform -translate-x-1/2 flex gap-6 list-none bg-white px-12 py-3 rounded-full 
-          shadow-sm bg-opacity-80 border-2 border-gray-400'
+          className='list-none'
           style={{ 
             padding: '1rem',
-            border: '1px solid white',
+             borderRadius: '2rem' ,border: '1px solid white',
             backgroundColor: 'white',
             marginRight: '0.5rem',
             marginTop: '1.5rem',
             display: "grid",
-            gridTemplateColumns: `repeat(${columns}, 1fr)`
+            gridTemplateColumns: `repeat(${columns}, 5fr)`
           }}
         >
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ padding: '1rem', color: 'black' }} href='#top'>Home</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ padding: '1rem', color: 'black' }} href='about'>About Me</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ padding: '1rem', color: 'black' }} href='#services'>Services</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ padding: '1rem', color: 'black' }} href='work'>My Work</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ padding: '1rem', color: 'black' }} href='contact'>Contact Me</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black' }} href='#top'>Home</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black' }} href='about'>About Me</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black' }} href='#services'>Services</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black' }} href='work'>My Work</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black' }} href='contact'>Contact Me</a></li>
         </ul>
 
         <div className='flex items-center gap-4'>
@@ -84,7 +97,7 @@ const Navbar = () => {
             style={{ marginLeft: '2.5rem', marginRight: '0.5rem', marginTop: '0.5rem' }} 
           />
 
-          <a 
+          {showContent && (<a 
             href='contact' 
             className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline bg-[white] ${ovo.className}`}  
             style={{
@@ -106,7 +119,7 @@ const Navbar = () => {
               height={15} 
               style={{ marginLeft: '1rem' }} 
             />
-          </a>
+          </a>)}
 
           <a 
             href='' 
