@@ -76,7 +76,7 @@ const Navbar = () => {
 
 
   return (
-    <div  className='w-full h-[100px]' style={{ marginTop: '0rem', marginBottom: '0rem' }}>
+    <div  className='w-full h-[0px]' style={{ marginTop: '0rem', marginBottom: '0rem' }}>
      
 
       <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50  
