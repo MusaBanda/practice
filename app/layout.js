@@ -2,7 +2,6 @@ import { Outfit, Ovo, Roboto, } from "next/font/google";
 import "./globals.css";
 
 
-
 export const roboto = Roboto({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -27,7 +26,7 @@ export default function RootLayout({ children }) {
         <meta name="description" content="" />
       </head>
       <body className={`${outfit.className} antialiased leading-8 overflow-x-hidden 
-      dark:bg-darkTheme `}>
+      dark:bg-darkTheme dark:text-white`}>
         {children}
       </body>
     </html>

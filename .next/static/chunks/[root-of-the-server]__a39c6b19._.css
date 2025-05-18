@@ -444,9 +444,6 @@
       --tw-backdrop-saturate: initial;
       --tw-backdrop-sepia: initial;
       --tw-duration: initial;
-      --tw-scale-x: 1;
-      --tw-scale-y: 1;
-      --tw-scale-z: 1;
     }
   }
 }
@@ -511,6 +508,26 @@
   margin-block: -1px;
 }
 
+.mt-\[4rem\] {
+  margin-top: 4rem;
+}
+
+.mr-\[5rem\] {
+  margin-right: 5rem;
+}
+
+.mb-\[5rem\] {
+  margin-bottom: 5rem;
+}
+
+.ml-\[5rem\] {
+  margin-left: 5rem;
+}
+
+.ml-\[8rem\] {
+  margin-left: 8rem;
+}
+
 .block {
   display: block;
 }
@@ -551,8 +568,16 @@
   aspect-ratio: 1;
 }
 
+.h-\[20rem\] {
+  height: 20rem;
+}
+
 .h-\[40rem\] {
   height: 40rem;
+}
+
+.h-\[100px\] {
+  height: 100px;
 }
 
 .h-\[360px\] {
@@ -581,10 +606,6 @@
 
 .max-w-none {
   max-width: none;
-}
-
-.min-w-\[280px\] {
-  min-width: 280px;
 }
 
 .flex-shrink {
@@ -639,6 +660,10 @@
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
@@ -711,18 +736,8 @@
   background-image: linear-gradient(var(--tw-gradient-stops));
 }
 
-.from-\[\#72c1fa\] {
-  --tw-gradient-from: #72c1fa;
-  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-}
-
 .from-\[\#f9f9f9\] {
   --tw-gradient-from: #f9f9f9;
-  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-}
-
-.to-\[\#f0ede2\] {
-  --tw-gradient-to: #f0ede2;
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
 }
 
@@ -844,28 +859,19 @@
 }
 
 @media (hover: hover) {
-  .hover\:scale-105:hover {
-    --tw-scale-x: 105%;
-    --tw-scale-y: 105%;
-    --tw-scale-z: 105%;
-    scale: var(--tw-scale-x) var(--tw-scale-y);
-  }
-}
-
-@media (hover: hover) {
   .hover\:underline:hover {
     text-decoration-line: underline;
   }
 }
 
 * {
-  font-family: Outfit;
+  font-family: Outfit, sans-serif;
 }
 
 html {
   box-sizing: border-box;
-  margin: -15px;
-  padding: -15px;
+  margin: 0;
+  padding: 0;
 }
 
 @property --tw-translate-x {
@@ -1088,24 +1094,6 @@ html {
 @property --tw-duration {
   syntax: "*";
   inherits: false
-}
-
-@property --tw-scale-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-
-@property --tw-scale-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-
-@property --tw-scale-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
 }
 
 
