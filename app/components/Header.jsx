@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { assets } from "@/assets/assets";
 import { roboto, ovo } from "../layout";
@@ -18,6 +18,21 @@ const Header = () => {
     setTimeout(() => setIsResumeClicked(false), 300); 
   };
 
+  // Responsive font size based on screen width
+
+  const [fontSize, setFontSize] = useState("14px");
+  
+    useEffect(() => {
+      const handleResize = () => {
+        setFontSize(window.innerWidth >= 1024 ? "30px" : "14px");
+      };
+  
+      window.addEventListener("resize", handleResize);
+      handleResize(); 
+  
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
   return (
     <div className='flex flex-col items-center justify-center h-screen '
     style={{ marginTop: '0rem', marginBottom: '10rem' }}>
@@ -27,8 +42,8 @@ const Header = () => {
       </div>
       
       <h3 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`} style={{marginBottom:'-1rem'}}>Hi I am Musa Dick Banda <Image src={assets.hand_icon}/></h3>
-      <h1 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`}style={{marginLeft:'20rem', marginRight:'20rem'}}>Front end web developer based South Africa</h1>
-      <p className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`} style={{marginLeft:'20rem', marginRight:'20rem', marginTop:'-1rem'}}>
+      <h1 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`}style={{marginLeft:'5rem', marginRight:'5rem'}}>Front end web developer based South Africa</h1>
+      <p className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`} style={{marginLeft:'5rem', marginRight:'5rem', marginTop:'-1rem', fontSize}}>
 I'm a beginner front-end web developer, just starting out on my journey. I may not have experience yet, but I'm learning every 
 day and excited to grow.
       </p>

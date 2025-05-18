@@ -5,6 +5,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ovo, roboto } from '../layout';
 
 const Navbar = () => {
+
+  // Scroll state
+
   const [isScroll, setIsScroll] = useState(false);
  
   const sideMenuRref = useRef();
@@ -27,16 +30,17 @@ const Navbar = () => {
     });
   }, []);
 
+// Show only on large screens
 
   const [showContent, setShowContent] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
-      setShowContent(window.innerWidth >= 1024); // Show only on large screens
+      setShowContent(window.innerWidth >= 1024); 
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Set initial state
+    handleResize(); 
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -53,6 +57,23 @@ const Navbar = () => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+
+  // Font size state
+
+  const [fontSize, setFontSize] = useState("14px");
+
+  useEffect(() => {
+    const handleResize = () => {
+      setFontSize(window.innerWidth >= 1024 ? "30px" : "14px");
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); 
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
 
   return (
     <div  className='w-full h-[100px]' style={{ marginTop: '0rem', marginBottom: '0rem' }}>
@@ -80,22 +101,22 @@ const Navbar = () => {
             gridTemplateColumns: `repeat(${columns}, 5fr)`
           }}
         >
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black' }} href='#top'>Home</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black' }} href='about'>About Me</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black' }} href='#services'>Services</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black' }} href='work'>My Work</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black' }} href='contact'>Contact Me</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black', fontSize,}} href='#top'>Home</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black', fontSize }} href='about'>About Me</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black', fontSize }} href='#services'>Services</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black', fontSize }} href='work'>My Work</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black', fontSize }} href='contact'>Contact Me</a></li>
         </ul>
 
         <div className='flex items-center gap-4'>
-          <Image 
+          {showContent && (<Image 
             src={assets.moon_icon} 
             alt='moon_icon' 
             width={40} 
             height={40} 
             className='cursor-pointer mr-14' 
             style={{ marginLeft: '2.5rem', marginRight: '0.5rem', marginTop: '0.5rem' }} 
-          />
+          />)}
 
           {showContent && (<a 
             href='contact' 
