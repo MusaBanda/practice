@@ -48,7 +48,7 @@ const Navbar = () => {
         ${isScroll ? "bg-[#ffe6e6] bg-opacity-50 backgrop-blur-lg shadow-sm" : ""}`}>
         
         <h1 
-          className={`sm:text-[30px] md:text-[60px] lg:text-[120px] font-bold ${roboto.className}`}
+          className={`hidden sm:text-[30px] md:text-[60px] lg:text-[120px] font-bold ${roboto.className}`}
           style={{ color: 'black', marginLeft: '2.5rem', marginTop: '1rem' }}
         >
           MusaBanda<span style={{ color: 'red' }}>.</span>
