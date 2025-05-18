@@ -65,7 +65,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setFontSize(window.innerWidth >= 1024 ? "30px" : "14px");
+      setFontSize(window.innerWidth >= 1024 ? "25px" : "14px");
     };
 
     window.addEventListener("resize", handleResize);
@@ -95,17 +95,22 @@ const Navbar = () => {
             padding: '1rem',
              borderRadius: '2rem' ,border: '1px solid white',
             backgroundColor: 'white',
-            marginRight: '0.5rem',
+            marginRight: '0rem',
             marginTop: '1.5rem',
             display: "grid",
             gridTemplateColumns: `repeat(${columns}, 5fr)`
           }}
         >
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black', fontSize,}} href='#top'>Home</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black', fontSize }} href='about'>About Me</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black', fontSize }} href='#services'>Services</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black', fontSize }} href='work'>My Work</a></li>
-          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} style={{ color: 'black', fontSize }} href='contact'>Contact Me</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
+          style={{ color: 'black', fontSize, }} href='#top'>Home</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
+          style={{ color: 'black', fontSize,}} href='about'>About Me</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
+          style={{ color: 'black', fontSize, }} href='#services'>Services</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
+          style={{ color: 'black', fontSize, }} href='work'>My Work</a></li>
+          <li><a className={`sm:text-[18px] md:text-[20px] lg:text-[30px] no-underline ${ovo.className}`} 
+          style={{ color: 'black', fontSize, }} href='contact'>Contact Me</a></li>
         </ul>
 
         <div className='flex items-center gap-4'>

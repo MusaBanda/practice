@@ -41,11 +41,14 @@ const Header = () => {
           style={{ marginLeft: '24rem', marginRight: '27rem', marginBottom: '-2rem', marginTop: '9rem' }} />
       </div>
       
-      <h3 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`} style={{marginBottom:'-1rem'}}>Hi I am Musa Dick Banda <Image src={assets.hand_icon}/></h3>
-      <h1 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`}style={{marginLeft:'5rem', marginRight:'5rem'}}>Front end web developer based South Africa</h1>
-      <p className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`} style={{marginLeft:'5rem', marginRight:'5rem', marginTop:'-1rem', fontSize}}>
-I'm a beginner front-end web developer, just starting out on my journey. I may not have experience yet, but I'm learning every 
-day and excited to grow.
+      <h3 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`} 
+      style={{marginBottom:'-1rem'}}>Hi I am Musa Dick Banda <Image src={assets.hand_icon}/></h3>
+      <h1 className={`sm:text-[18px] md:text-[20px] lg:text-[30px] ${ovo.className}`}
+      style={{marginLeft:'1rem', marginRight:'0rem'}}>Front end web developer based South Africa</h1>
+      <p className={`sm:text-[18px] md:text-[20px] lg:text-[30px] text-justify ${ovo.className}`} 
+      style={{marginLeft:'5rem', marginRight:'5rem', marginTop:'-1rem', fontSize}}>
+       I'm a beginner front-end web developer, just starting out on my journey. I may not have experience
+      yet, but I'm learning every day and excited to grow.
       </p>
 
       <div className='flex flex-col-2 items-center'>
